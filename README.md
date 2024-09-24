@@ -1,38 +1,31 @@
-# create-svelte
+![SvelteKitXWordPress](static/readme-banner.png)
 
-Everything you need to build a Svelte project, powered by [`create-svelte`](https://github.com/sveltejs/kit/tree/main/packages/create-svelte).
+# SvelteKit with WordPress starter
 
-## Creating a project
+<div>
+  <img src="https://img.shields.io/badge/Svelte-orange?style=for-the-badge&logo=svelte&logoColor=white" alt="svelte">
+  <img src="https://img.shields.io/badge/Typescript-blue?style=for-the-badge&logo=typescript&logoColor=white" alt="typescript">
+  <img src="https://img.shields.io/badge/TailwindCSS-blue?style=for-the-badge&logo=tailwindcss&logoColor=white" alt="tailwindcss">
+  <img src="https://img.shields.io/badge/WordPress-gray?style=for-the-badge&logo=wordpress&logoColor=white" alt="wordpress">
+  <img src="https://img.shields.io/badge/Docker-blue?style=for-the-badge&logo=docker&logoColor=white" alt="wordpress">
+  <img src="https://img.shields.io/badge/Houdini-gray?style=for-the-badge&logoColor=white" alt="houdini">
+  <img src="https://img.shields.io/badge/GraphQL-E10098?style=for-the-badge&logo=graphql&logoColor=white" alt="houdini">
+</div>
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```bash
-# create a new project in the current directory
-npm create svelte@latest
-
-# create a new project in my-app
-npm create svelte@latest my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+## Installation
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+docker compose up -d --build
 ```
 
-## Building
+It will start 2 servers. One for the WordPress app and the other for the client part with SvelteKit.
 
-To create a production version of your app:
+- `localhost` - WordPress
 
-```bash
-npm run build
-```
+- `localhost:3000` - SvelteKit
 
-You can preview the production build with `npm run preview`.
+Once that is done, go to `localhost/wp-admin` and follow the WordPress configuration instructions. Then, install and active the plugin named `WPGraphQL`.
 
-> To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+Last step, go to `WPGraphQL` settings and check `Enable GraphQL Debug Mod`.
+
+This plugin will allows your SvelteKit app to communicate with the WordPress app and get the data from it thanks to the Houdini GraphQL Client.
